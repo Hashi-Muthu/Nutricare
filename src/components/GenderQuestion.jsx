@@ -65,7 +65,7 @@ function GenderQuestion() {
             <img src={logoImage} alt="Logo" className="logo-image" />
             <Typography variant="h4" className="gender-question-containerh1">What is your Gender?</Typography>
 
-            <Grid container spacing={1}>
+            <Grid container spacing={8}>
               <Grid item xs={6}>
                 <div className="gender-option">
                   <img src={girl} alt="Female" className="gender-image" />

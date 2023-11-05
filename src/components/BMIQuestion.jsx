@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
+import Radio from '@mui/material/Radio';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 import './BMIQuestion.css';
 import { useGlobalContext } from '../GlobalContext';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 function BMIQuestion() {
   const [selectedBMI, setSelectedBMI] = useState(null);
@@ -40,7 +47,7 @@ function BMIQuestion() {
     } else {
       setSelectedBMI('35 or higher');
     }
-    console.log(selectedBMI)
+    console.log(selectedBMI);
   };
 
   const updateAndNavigate = () => {
@@ -65,9 +72,9 @@ function BMIQuestion() {
           default:
             globalArray[1] = '';
         }
-        
+
         updateGlobalArrayAtIndex(1, globalArray[1]);
-        console.log(globalArray)
+        console.log(globalArray);
         navigate('/bsq', { state: { array: globalArray } });
       } else {
         setShowWarning(true);
@@ -76,83 +83,133 @@ function BMIQuestion() {
   };
 
   return (
-    <div style={{minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }} className="body-containerb" >
+    <div style={{ minHeight: '100vh', display: 'column', justifyContent: 'center', alignItems: 'center' }} className="body-containerb">
       <div className="overlay">
-        <div className="bmi-question-container">
+        <Container maxWidth="md" style={{ marginBottom: '0px' }} >
+       
+          <div className="bmi-question-container" style={{ marginBottom: '10px' }} >
           
-          <div className="bmi-question-column">
-         
-            <div className="bmi-calculation-section">
-              <h2 className=''>BMI Calculator</h2>
-              <div className="input-group">
-                <label>Height (in cm):</label>
-                <input type="number" onChange={handleHeightChange} value={height} />
-              </div>
-              <div className="input-group">
-                <label>Weight (in kg):</label>
-                <input type="number" onChange={handleWeightChange} value={weight} />
-              </div>
-              <button className="calculate-button" onClick={calculateBMI}>
-                Calculate BMI
-              </button>
-              {bmiResult && <p className="bmi-result">Your BMI: {bmiResult.toFixed(2)}</p>}
-              {showWarning && (
-                <p className="warning">Please select your BMI range before proceeding.</p>
-              )}
-            </div>
-          </div>
+            <Grid container spacing={12}>
+              
+              <Grid item xs={12} sm={6} style={{ marginLeft: '2px' }} >
+                <div className="bmi-options-column">
+                <Typography variant="h4" style={{marginTop: '20px' }}>Your BMI range</Typography>
+          <Typography variant="h6" style={{marginTop: '10px' }}>Use the calculator if you don't know the BMI</Typography>
+                  
+                  <div className="gender-options">
+                    <FormControlLabel
+                      control={
+                        <Radio
+                          checked={selectedBMI === 'Below 18.5'}
+                          onChange={() => handleBMIChange({ target: { value: 'Below 18.5' } })}
+                        />
+                      }
+                      label="Below 18.5"
+                    />
+                    <FormControlLabel
+                      control={
+                        <Radio
+                          checked={selectedBMI === 'Between 18.5 and 24.9'}
+                          onChange={() =>
+                            handleBMIChange({ target: { value: 'Between 18.5 and 24.9' } })
+                          }
+                        />
+                      }
+                      label="Between 18.5 and 24.9"
+                    />
+                    <FormControlLabel
+                      control={
+                        <Radio
+                          checked={selectedBMI === 'Between 25 and 29.9'}
+                          onChange={() =>
+                            handleBMIChange({ target: { value: 'Between 25 and 29.9' } })
+                          }
+                        />
+                      }
+                      label="Between 25 and 29.9"
+                    />
+                    <FormControlLabel
+                      control={
+                        <Radio
+                          checked={selectedBMI === 'Between 30 and 34.9'}
+                          onChange={() =>
+                            handleBMIChange({ target: { value: 'Between 30 and 34.9' } })
+                          }
+                        />
+                      }
+                      label="Between 30 and 34.9"
+                    />
+                    <FormControlLabel
+                      control={
+                        <Radio
+                          checked={selectedBMI === '35 or higher'}
+                          onChange={() => handleBMIChange({ target: { value: '35 or higher' } })}
+                        />
+                      }
+                      label="35 or higher"
+                    />
+                  </div>
+                </div>
+              </Grid>
+              <Grid item xs={12} sm={6} style={{ marginBottom: '12px' }} > 
+  <div className="bmi-options-column">
+    <Typography variant="h4" style={{ marginBottom: '10px' }}>BMI Calculator</Typography>
+    <TextField
+      fullWidth
+      label="Height (in cm)"
+      type="number"
+      value={height}
+      onChange={handleHeightChange}
+      style={{ marginBottom: '10px' }} 
+    />
+    <TextField
+      fullWidth
+      label="Weight (in kg)"
+      type="number"
+      value={weight}
+      onChange={handleWeightChange}
+    />
+    <Button
+      variant="contained"
+      color="primary"
+      onClick={calculateBMI}
+    >
+      Calculate BMI
+    </Button>
+    {bmiResult && (
+      <Typography variant="body1" className="bmi-result">
+        Your BMI: {bmiResult.toFixed(2)}
+      </Typography>
+    )}
+    {showWarning && (
+      <Typography variant="body1" className="warning">
+        Please select your BMI range before proceeding.
+      </Typography>
+    )}
+  </div>
+</Grid>
 
-          <div className="bmi-options-column">
-           
-              <h3>Your BMI range</h3>
-              <span>You can use the BMI calculator if you don't know your BMI</span>
-              <div className="gender-options">
-  <label
-    className={`gender-option ${selectedBMI === "Below 18.5" ? 'selected' : ''}`}
-    onClick={() => handleBMIChange({ target: { value: "Below 18.5" } })}
-  >
-    Below 18.5
-  </label>
-  <label
-    className={`gender-option ${selectedBMI === "Between 18.5 and 24.9" ? 'selected' : ''}`}
-    onClick={() => handleBMIChange({ target: { value: "Between 18.5 and 24.9" } })}
-  >
-    Between 18.5 and 24.9
-  </label>
-  <label
-    className={`gender-option ${selectedBMI === "Between 25 and 29.9" ? 'selected' : ''}`}
-    onClick={() => handleBMIChange({ target: { value: "Between 25 and 29.9" } })}
-  >
-    Between 25 and 29.9
-  </label>
-  <label
-    className={`gender-option ${selectedBMI === "Between 30 and 34.9" ? 'selected' : ''}`}
-    onClick={() => handleBMIChange({ target: { value: "Between 30 and 34.9" } })}
-  >
-    Between 30 and 34.9
-  </label>
-  <label
-    className={`gender-option ${selectedBMI === "35 or higher" ? 'selected' : ''}`}
-    onClick={() => handleBMIChange({ target: { value: "35 or higher" } })}
-  >
-    35 or higher
-  </label>
-</div>
-           
+            </Grid>
           </div>
-        </div>
+        </Container>
 
         <div className="next-button-containerg">
-          <a href="/gq" >
-            <button className="next-buttong">Change responses</button>
-            
-          </a>
-          
-          <Link to="/bsq">
-            <button className="next-buttong" onClick={updateAndNavigate} disabled={!selectedBMI}>
+          <Link to="/gq">
+            <Button variant="contained" color="primary" className="next-buttong">
+              Change responses
+            </Button>
+          </Link>
 
+          <Link to="/bsq">
+            <Button
+              variant="contained"
+              color="primary"
+              className="next-buttong"
+              onClick={updateAndNavigate}
+              disabled={!selectedBMI}
+            >
               Next
-            </button>
+            </Button>
           </Link>
         </div>
       </div>

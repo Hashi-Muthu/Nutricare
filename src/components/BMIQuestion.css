@@ -1,213 +1,80 @@
 /* BMIQuestion.css */
+
+/* Common styles for all screen sizes */
 .body-containerb {
   background-image: url('../images/gb.jpeg');
   background-size: cover;
+  justify-content: center;
 }
 
 .bmi-question-container {
-  background-color: #f3f3f3;
-  display: flex;
-  flex-direction: row;
+  
+  flex-direction:column;
   padding: 5% 10%;
   width: 80vw;
   max-width: 1300px;
   height: 680px;
-  color: rgb(224, 224, 224);
+  color: #e0e0e0;
 }
 
 .bmi-question-column {
-  flex:1;
+  flex: 1;
   align-items: center;
   padding: 10px;
-  margin-right: 55px;
   font-size: 21px;
   object-fit: cover;
 }
 
 .bmi-options-column {
   padding: 45px;
-  margin-left: 68px;
+  margin-left: 8px;
   font-size: 35px;
   background-color: #08a000;
   color: #ccc;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  max-height:500px;
-  margin-top: 12px;
+  max-height: 500px;
+  margin-top: -50px;
 }
 
-.bmi-options {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 80px;
+/* Responsive styles based on screen size */
+
+/* For screens with a maximum width of 480px (small laptops and tablets) */
+@media (max-width: 480px) {
+  .bmi-question-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .bmi-question-column,
+  .bmi-options-column {
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+  }
 }
 
-.bmi-option {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  margin-top: 80px;
+/* For screens with a maximum width of 768px (laptops and desktops) */
+@media (min-width: 768px) {
+  .bmi-question-container {
+    margin-top: 150px;
+  }
+
+  .bmi-option {
+    margin-top: 20px;
+  }
+
+  .bmi-option label {
+    font-size: 20px;
+  }
 }
 
-/* Hide the input element */
-.bmi-option input {
-  display: none;
+/* For screens with a maximum width of 360px (typical mobile phone screens) */
+@media (max-width: 360px) {
+  .bmi-question-column,
+  .bmi-options-column {
+    font-size: 18px;
+  }
 }
 
-/* Style the label to make it look like a clickable element */
-.bmi-option label {
-  color: #fff; /* Adjust label text color */
-  font-size: 16px; /* Adjust label text size */
-  cursor: pointer;
-}
-
-/* Style the selected option */
-.bmi-option input:checked + label {
-  background-color: #ffffff;
-  color: white;
-  border-radius: 5px;
-  padding: 5px 10px;
-}
-
-.buttons-container {
-  text-align: center;
-  margin-top: 110px;
-  margin-left: 110px;
-}
-
-.navigation-button,
-.next-button {
-  display: inline-block;
-  margin: 0 10px;
-  padding: 10px 20px;
-  background-color: #bababa;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.logo-image {
-  height: 150px;
-  width: 250px;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-
-.home-button {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  color: #f4f4f4;
-}
-
-.Bmi-h {
-  color: #f4f4f4;
-  align-items: center;
-  margin-left: 550px;
-}
-
-.home-button img {
-  width: 30px;
-  height: 30px;
-}
-
-.bmi-calculation-section {
-  color: black;
-  background-color: #08a000;
-  padding: 100px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  height: 400px;
-  margin-right: 5px;
-  align-items: center;
-  width: 300px;
-  margin-left: -50px;
-}
-
-.bmi-select {
-  color: rgb(255, 255, 255);
-  background-color: #705E9C;
-  padding: 40px;
-  font-size: 16px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(178, 65, 244, 0.2);
-  margin-top: 5px;
-  height: 280px;
-  margin-right: 80px;
-}
-
-.bmi-calculation-section p {
-  font-size: 28px;
-  font-weight: bold;
-  color: #f3f3f3;
-}
-
-.input-group {
-  margin: 20px 20px;
-  color: rgb(232, 232, 232);
-  margin-left: -5px;
-}
-
-.input-group label {
-  color: rgb(232, 232, 232);
-  font-size: 26px;
-  display: block;
-  margin-bottom: 20px;
-}
-
-.input-group input {
-  width: 100%;
-  padding: 12px;
-  font-size: 26px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-}
-
-.calculate-button {
-  background-color: #3c2c62;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.calculate-button:hover {
-  background-color: #191919;
-}
-
-.bmi-result {
-  margin-top: 10px;
-  font-size: 18px;
-}
-
-.warning {
-  margin-top: 10px;
-  font-size: 16px;
-  color: #ff0000;
-}
-
-.topic {
-  text-align: center;
-  font-size: 44px;
-  margin-bottom: 20px;
-  color: #000000;
-}
-
-.text-box-dialog {
-  background-color: #ffffff;
-  padding: 20px;
-  text-align: center;
-  font-size: 52px;
-  margin-bottom: 20px;
-  color: #ffffff;
-  border-radius: 15px;
-}
+/* Additional responsive styles can be added based on your specific requirements. */
