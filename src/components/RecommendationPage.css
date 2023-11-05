@@ -1,0 +1,100 @@
+* Add more styling as needed for buttons and other elements */
+
+/* Styling for the buttons */
+.button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  object-fit: cover; 
+}
+
+.message-button {
+  display: block;
+ 
+  margin-left: 250px;
+  
+}
+.button:hover {
+  background-color: #0056b3;
+}
+
+/* Styling for the buttons in different states */
+.button.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Styling for the images */
+.left-section img {
+ size: 100%;
+  border-radius: 5px;
+}
+
+/* Additional styles for the output text box */
+.output-text-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  max-width: 700px;
+  height: 300px;
+  margin-top: 10px;
+  margin-left: 40px;
+  overflow-y: auto;
+  border-radius: 5px;
+}
+.rd{
+  margin-left: 1000px;
+
+  width: 250px;
+  height: 280px;
+  top: 100px;
+ margin-top: -250px;
+}
+.recommendation-page{
+  background-color:#332B47;
+  height: 700px;
+  object-fit: cover; 
+}
+/* Style for the logo */
+.logo {
+  height: 200px;
+    width: 350px;
+   
+   top: -15px;
+   margin-left: 600px;
+}
+
+/* Add more custom styles as needed */
+.navigation-buttonsr1 {
+ 
+ margin-left: 1040px;
+ margin-top: -300px;
+}
+.navigation-buttonsr2 {
+ 
+  margin-left: 1020px;
+  margin-top: 40px;
+ }
+.navigation-buttonr {
+  background-color: #015a73;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  
+  /* Add margin between buttons */
+ 
+}
+
+.navigation-buttonr:hover {
+  background-color: #7a0276;
+}
+.rh{
+  margin-top: -15px;
+  align-items: center;
+  margin-left: 50px;
+}

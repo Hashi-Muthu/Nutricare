@@ -1,0 +1,94 @@
+.front-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+  height: 200vh;
+}
+
+
+
+.logo {
+  position: absolute;
+ 
+  width: 400px;
+  margin-top:80px;
+  left:-400px;
+}
+
+.header-content {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  width:40%;
+}
+
+h1 {
+  font-size: 150px;
+  margin: -22px 0;
+}
+
+p {
+  font-size: 38px;
+}
+
+.buttons {
+  margin-top: 80px;
+  font-size: 38px;
+}
+
+.buttonf {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 20px;
+  background-color: #1fa130;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.buttonf:hover {
+  background-color:#1fa130;
+}
+
+
+
+.video-container {
+  position: absolute;
+  max-width: 100%;
+margin-top: 840PX;
+}
+
+.guidance-video {
+  width: 100%;
+  height: auto;
+  z-index: 0;
+}
+
+
+header {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  width: 108%;
+  height: 110vh;
+  display: flex;
+  align-items: center;
+  color: black;
+  
+  margin: 0; /* Remove the margin */
+  border-bottom-left-radius: 20%; /* Round the bottom left corner */
+  border-bottom-right-radius: 20%; /* Round the bottom right corner */
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  border: none; /* Remove the border */
+  margin: 0; /* Remove the margin */
+  font-size: 100px;
+  color: #75bf7f;
+}

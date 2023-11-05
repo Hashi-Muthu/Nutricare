@@ -1,0 +1,73 @@
+/* Reset default margin and padding for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Apply a global font family for better consistency */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.nutrition-page {
+  text-align: center;
+  padding: 20px;
+  background-color: hsl(300, 55%, 37%);
+  min-height: 650px; /* Use min-height to ensure the background covers the content */
+}
+
+.header-image {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.footer-image {
+  width: 350px;
+  border-radius: 5px;
+  margin-top: 5px; /* Correct the margin value (remove leading zero) */
+}
+
+.center-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.nutrition-button {
+  background-color: #04515a;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 300px;
+}
+
+.nutrition-button:hover {
+  background-color: #0056b3;
+}
+
+/* Add more custom styles as needed */
+
+.back-links {
+  margin-top: 20px;
+}
+
+.back-links a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 5px;
+}
+
+.button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: darkcyan;
+}
+
+.back-links a:hover {
+  text-decoration: underline;
+}

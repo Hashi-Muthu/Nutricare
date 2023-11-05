@@ -1,0 +1,157 @@
+/* BloodPressureLevelPage.css */
+.blood-pressure-level-container {
+    background-color: rgb(158, 11, 155);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 5% 10%;
+    width: 79vw;
+   height: 560px;
+    margin: 0 auto;
+    color: white;
+  }
+  
+  .blood-pressure-level-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .blood-pressure-table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+  }
+  
+  .blood-pressure-table th,
+  .blood-pressure-table td {
+    padding: 10px;
+    border: 1px solid white;
+    margin-bottom: 125px;
+  }
+  
+  .blood-pressure-table th {
+    background-color:rgb(140, 42, 138);
+  }
+  
+  .options-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 14px;
+  }
+  
+  .option {
+    background-color: #7a0276;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    gap: 14px;
+  }
+  
+  .option input[type="radio"] {
+    margin-right: 15px;
+  }
+  
+  .option.selected {
+    background-color: #1a6a77;
+  }
+  
+.navigation-buttons4 {
+    display:flex;
+    justify-content:center;
+    margin-top: 20px;
+  }
+  .navigation-buttons5 {
+    display:flex;
+    justify-content:center;
+    margin-top: 20px;
+  }
+  .navigation-button2 {
+    background-color:#524571;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 10px; /* Add margin between buttons */
+  }
+  
+  .navigation-button2:hover {
+    background-color: #1c223c;
+  }
+  .logo-image {
+    height:150px;
+    width: 250px;
+    position: absolute;
+    bottom: 10px;
+    left: 1225px;
+    
+  }
+  /* BloodPressureLevelPage.css */
+
+/* Styles for the whole container */
+.blood-pressure-level-container {
+  background-color: #000000;
+  
+  color: white;
+  width: 79vw;
+  max-height: 488px;
+}
+
+/* Styles for the table container */
+.table-container {
+  background-color: #544B6B;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.blood-pressure-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.blood-pressure-table th,
+.blood-pressure-table td {
+  padding: 10px;
+  text-align: center;
+}
+
+.blood-pressure-table th {
+  background-color: #444;
+}
+
+.blood-pressure-table tr:nth-child(even) {
+  background-color: #655C7A;
+}
+
+/* Styles for the options container */
+.options-containers {
+  background-color: #544B6B;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.options-rows {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.option {
+  display: inline-block;
+  background-color: #655C7A;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.option input[type="radio"] {
+  display: none;
+}
+
+.option.selected {
+  background-color: #332B47;
+}

@@ -1,0 +1,61 @@
+.food-list-page {
+    display: flex;
+   
+    background-color:  rgb(5, 107, 127);
+    padding: 20px;
+
+  }
+  
+  .left-section {
+    flex: 1;
+  }
+  
+  .right-section {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .food-list-image {
+    width:500px;
+    border-radius:3px;
+  }
+  
+  .logo {
+    width: 350px;
+    border-radius: 5px;
+  }
+  
+  .page-title {
+    color: rgb(176, 129, 174);
+    margin-top: -20px;
+    margin-left: 300px;
+    font-size: 35px;
+  }
+  
+  .output-text-box {
+    border: 5px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    border-radius: 5px;
+  }
+  
+  .navigation-buttons {
+    margin-top: 20px;
+  }
+  
+  .navigation-button {
+    background-color: #9a0586;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .navigation-button:hover {
+    background-color: #0098b3;
+  }
+  
