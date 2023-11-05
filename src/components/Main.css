@@ -11,9 +11,9 @@
 .logo {
   position: absolute;
  
-  width: 400px;
-  margin-top:80px;
-  left:-400px;
+  width: 300px;
+  margin-top:20px;
+  left:-500px;
 }
 
 .header-content {
@@ -32,8 +32,8 @@ p {
 }
 
 .buttons {
-  margin-top: 80px;
-  font-size: 38px;
+  margin-top: 50px;
+  font-size: 28px;
 }
 
 .buttonf {
@@ -49,7 +49,7 @@ p {
 }
 
 .buttonf:hover {
-  background-color:#1fa130;
+  background-color:#4a8652;
 }
 
 
