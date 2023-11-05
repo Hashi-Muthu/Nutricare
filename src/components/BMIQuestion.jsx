@@ -40,6 +40,7 @@ function BMIQuestion() {
     } else {
       setSelectedBMI('35 or higher');
     }
+    console.log(selectedBMI)
   };
 
   const updateAndNavigate = () => {
@@ -149,6 +150,7 @@ function BMIQuestion() {
           
           <Link to="/bsq">
             <button className="next-buttong" onClick={updateAndNavigate} disabled={!selectedBMI}>
+
               Next
             </button>
           </Link>

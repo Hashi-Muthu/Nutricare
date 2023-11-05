@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 //import {Route } from "react-router-dom";
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
 import GQ from './components/GenderQuestion'
 import BQ from './components/BMIQuestion'
 import BSQ from './components/BloodSugarLevelQuestion';
@@ -13,7 +13,7 @@ import R from './components/RecommendationPage'
 import FP from './components/FoodPreferencePage'
 import NP from './components/NutritionPage'
 import F from './components/Feedback'
-
+import './index.css';
 
 import { GlobalProvider } from './GlobalContext';
 import {
@@ -83,4 +83,4 @@ root.render(
 );
 
 
-reportWebVitals();
+

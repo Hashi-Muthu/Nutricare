@@ -11,6 +11,7 @@ function GenderQuestion() {
   const [selectedGender, setSelectedGender] = useState(null);
   const { globalArray, updateGlobalArrayAtIndex } = useGlobalContext();
   const navigate = useNavigate();
+ 
 
   const handleGenderChange = (event) => {
     setSelectedGender(event.target.value);

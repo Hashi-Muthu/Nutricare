@@ -17,7 +17,8 @@ function BloodCholesterolLevelPage() {
   const updateAndNavigate = () => {
     if (globalArray && globalArray.length >= 0 && selectedCholesterolLevel) {
       const updatedArray = [...globalArray];
-      console.log('Updated Global Array:',updatedArray);;
+      console.log('Updated Global Array:',updatedArray);
+      
       switch (selectedCholesterolLevel) {
         case 'Normal range: 0-200 mg/dL':
           globalArray[4] = 'C1';
