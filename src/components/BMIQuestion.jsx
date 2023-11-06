@@ -93,7 +93,7 @@ function BMIQuestion() {
               
               <Grid item xs={12} sm={6} style={{ marginLeft: '2px' }} >
                 <div className="bmi-options-column">
-                <Typography variant="h4" style={{marginTop: '20px' }}>Your BMI range</Typography>
+                <Typography variant="h4" style={{marginTop: '20px' }}>What is your BMI Range?</Typography>
           <Typography variant="h6" style={{marginTop: '10px' }}>Use the calculator if you don't know the BMI</Typography>
                   
                   <div className="gender-options">
@@ -173,6 +173,7 @@ function BMIQuestion() {
       variant="contained"
       color="primary"
       onClick={calculateBMI}
+      style={{ background: 'Green', color: 'White' }}
     >
       Calculate BMI
     </Button>
@@ -195,7 +196,7 @@ function BMIQuestion() {
 
         <div className="next-button-containerg">
           <Link to="/gq">
-            <Button variant="contained" color="primary" className="next-buttong">
+            <Button variant="contained" color="primary"   style={{ background: 'White', color: 'black' ,marginLeft: '-154px',marginRight:'4px'} }>
               Change responses
             </Button>
           </Link>
@@ -207,6 +208,7 @@ function BMIQuestion() {
               className="next-buttong"
               onClick={updateAndNavigate}
               disabled={!selectedBMI}
+              style={{ background: 'White', color: 'black' }}
             >
               Next
             </Button>

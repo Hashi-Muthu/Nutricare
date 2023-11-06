@@ -102,6 +102,7 @@ function GenderQuestion() {
                 color="success"
                 className="next-button"
                 onClick={Gh}
+                style={{ marginRight: '12px' }} 
               >
                 Back to Home
               </Button>
@@ -111,6 +112,7 @@ function GenderQuestion() {
                 className="next-button"
                 onClick={addItem}
                 disabled={!selectedGender}
+                style={{ marginLeft: '22px' }} 
               >
                 Next
               </Button>
