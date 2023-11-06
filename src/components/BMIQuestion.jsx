@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
@@ -81,7 +81,9 @@ function BMIQuestion() {
       }
     }
   };
-
+  const Changeresponse = () => {
+    navigate('/');
+  }
   return (
     <div style={{ minHeight: '100vh', display: 'column', justifyContent: 'center', alignItems: 'center' }} className="body-containerb">
       <div className="overlay">
@@ -195,24 +197,25 @@ function BMIQuestion() {
         </Container>
 
         <div className="next-button-containerg">
-          <Link to="/gq">
-            <Button variant="contained" color="primary"   style={{ background: 'White', color: 'black' ,marginLeft: '-154px',marginRight:'4px'} }>
+         
+            <Button onClick={Changeresponse} variant="contained" color="primary"   style={{ background: 'White', color: 'black' ,marginLeft: '-154px',marginRight:'4px'} }>
               Change responses
             </Button>
-          </Link>
+         
 
-          <Link to="/bsq">
+         
             <Button
               variant="contained"
               color="primary"
               className="next-buttong"
               onClick={updateAndNavigate}
-              disabled={!selectedBMI}
+              
               style={{ background: 'White', color: 'black' }}
+              disabled={!selectedBMI}
             >
               Next
             </Button>
-          </Link>
+         
         </div>
       </div>
     </div>
