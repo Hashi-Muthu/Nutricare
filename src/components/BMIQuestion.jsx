@@ -118,6 +118,7 @@ function BMIQuestion() {
                         />
                       }
                       label="Between 18.5 and 24.9"
+                      style={{marginLeft:'60px'}}
                     />
                     <FormControlLabel
                       control={
@@ -149,6 +150,7 @@ function BMIQuestion() {
                         />
                       }
                       label="35 or higher"
+                      style={{marginLeft:'140px'}}
                     />
                   </div>
                 </div>
