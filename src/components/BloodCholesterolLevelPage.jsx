@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import './BloodCholesterolLevelPage.css';
-import logoImage from '../images/Newlogo.png';
-import c from '../images/c.png';
 import { useGlobalContext } from '../GlobalContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import Radio from '@mui/material/Radio';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 function BloodCholesterolLevelPage() {
   const [selectedCholesterolLevel, setSelectedCholesterolLevel] = useState(null);
@@ -17,8 +20,8 @@ function BloodCholesterolLevelPage() {
   const updateAndNavigate = () => {
     if (globalArray && globalArray.length >= 0 && selectedCholesterolLevel) {
       const updatedArray = [...globalArray];
-      console.log('Updated Global Array:',updatedArray);
-      
+      console.log('Updated Global Array:', updatedArray);
+
       switch (selectedCholesterolLevel) {
         case 'Normal range: 0-200 mg/dL':
           globalArray[4] = 'C1';
@@ -38,9 +41,9 @@ function BloodCholesterolLevelPage() {
         default:
           globalArray[4] = '';
       }
-      
+
       // Update the global context with the updated array
-      updateGlobalArrayAtIndex(4,globalArray[4]);
+      updateGlobalArrayAtIndex(4, globalArray[4]);
       console.log('Updated Global Array:', globalArray);
       // Navigate to the next page with the updated array
       navigate('/al', { state: { array: globalArray } });
@@ -48,106 +51,109 @@ function BloodCholesterolLevelPage() {
   }
 
   return (
-    <div>
-      <div className="centered-container">
-        <div className="blood-cholesterol-level-container">
-          <div className="container-content">
-            <h1>What is your Blood Cholesterol Level?</h1>
-            <h3>Select the range which your blood cholesterol level belongs</h3>
-
-            <div className="cholesterol-level-options">
-              <label
-                className={`cholesterol-level-option ${
-                  selectedCholesterolLevel === 'Normal range: 0-200 mg/dL' ? 'selected' : ''
-                }`}
-              >
-                <input
-                  type="radio"
-                  value="Normal range: 0-200 mg/dL"
-                  checked={selectedCholesterolLevel === 'Normal range: 0-200 mg/dL'}
-                  onChange={handleCholesterolLevelChange}
-                />
-                Normal range: 0-200 mg/dL
-              </label>
-              <label
-                className={`cholesterol-level-option ${
-                  selectedCholesterolLevel === 'Borderline high: 200-240 mg/dL' ? 'selected' : ''
-                }`}
-              >
-                <input
-                  type="radio"
-                  value="Borderline high: 200-240 mg/dL"
-                  checked={selectedCholesterolLevel === 'Borderline high: 200-240 mg/dL'}
-                  onChange={handleCholesterolLevelChange}
-                />
-                Borderline high: 200-240 mg/dL
-              </label>
-              <label
-                className={`cholesterol-level-option ${
-                  selectedCholesterolLevel === 'High: 240-300 mg/dL' ? 'selected' : ''
-                }`}
-              >
-                <input
-                  type="radio"
-                  value="High: 240-300 mg/dL"
-                  checked={selectedCholesterolLevel === 'High: 240-300 mg/dL'}
-                  onChange={handleCholesterolLevelChange}
-                />
-                High: 240-300 mg/dL
-              </label>
-              <label
-                className={`cholesterol-level-option ${
-                  selectedCholesterolLevel === 'Very high: 300-500 mg/dL' ? 'selected' : ''
-                }`}
-              >
-                <input
-                  type="radio"
-                  value="Very high: 300-500 mg/dL"
-                  checked={selectedCholesterolLevel === 'Very high: 300-500 mg/dL'}
-                  onChange={handleCholesterolLevelChange}
-                />
-                Very high: 300-500 mg/dL
-              </label>
-              <label
-                className={`cholesterol-level-option ${
-                  selectedCholesterolLevel === 'Extremely high: above 500 mg/dL' ? 'selected' : ''
-                }`}
-              >
-                <input
-                  type="radio"
-                  value="Extremely high: above 500 mg/dL"
-                  checked={selectedCholesterolLevel === 'Extremely high: above 500 mg/dL'}
-                  onChange={handleCholesterolLevelChange}
-                />
-                Extremely high: above 500 mg/dL
-              </label>
-              
-            </div>
-            <div className="navigation-buttons">
-              <a href="/gq" className="navigation-button">
-                Change Responses
-              </a>
-              <button
-                className="next-button"
-                onClick={updateAndNavigate}
-                disabled={!selectedCholesterolLevel}
-              >
-                Next
-              </button>
-            </div>
-            {selectedCholesterolLevel && (
-              <p>You selected: {selectedCholesterolLevel}</p>
-            )}
-
+    <Container >
+      <Grid container justifyContent="center" alignItems="center" style={{ borderRadius:'18px',backgroundColor: 'green', minHeight: '50vh',marginTop:'140px',marginBottom:'20px' ,color:'white'}}>
+        <Grid item xs={12}>
+          <Typography variant="h4" align="center" style={{ marginBottom: '20px' }}>
+            What is your Blood Cholesterol Level?
+          </Typography>
+        </Grid>
+        <Grid container item xs={12} spacing={2} justifyContent="center" alignItems="center" >
+          <FormControlLabel
+            value="Normal range: 0-200 mg/dL"
+            control={
+              <Radio
+                checked={selectedCholesterolLevel === 'Normal range: 0-200 mg/dL'}
+                onChange={handleCholesterolLevelChange}
+                value="Normal range: 0-200 mg/dL"
+                style={{ transform: 'scale(1.5)',color:'white' }}
+              />
+            }
+            label="Normal range: 0-200 mg/dL"
+          />
+          <FormControlLabel
+            value="Borderline high: 200-240 mg/dL"
+            control={
+              <Radio
+                checked={selectedCholesterolLevel === 'Borderline high: 200-240 mg/dL'}
+                onChange={handleCholesterolLevelChange}
+                value="Borderline high: 200-240 mg/dL"
+                style={{ transform: 'scale(1.5)',color:'white' }}
+              />
+            }
+            label="Borderline high: 200-240 mg/dL"
+          />
+          <FormControlLabel
+            value="High: 240-300 mg/dL"
+            control={
+              <Radio
+                checked={selectedCholesterolLevel === 'High: 240-300 mg/dL'}
+                onChange={handleCholesterolLevelChange}
+                value="High: 240-300 mg/dL"
+                style={{ transform: 'scale(1.5)',color:'white'  }}
+              />
+            }
+            label="High: 240-300 mg/dL"
+          />
+          <FormControlLabel
+            value="Very high: 300-500 mg/dL"
+            control={
+              <Radio
+                checked={selectedCholesterolLevel === 'Very high: 300-500 mg/dL'}
+                onChange={handleCholesterolLevelChange}
+                value="Very high: 300-500 mg/dL"
+                style={{ transform: 'scale(1.5)',color:'white'  }}
+              />
+            }
+            label="Very high: 300-500 mg/dL"
+          />
+          <FormControlLabel
+            value="Extremely high: above 500 mg/dL"
+            control={
+              <Radio
+                checked={selectedCholesterolLevel === 'Extremely high: above 500 mg/dL'}
+                onChange={handleCholesterolLevelChange}
+                value="Extremely high: above 500 mg/dL"
+                style={{ transform: 'scale(1.5)',color:'white'  }}
+              />
+            }
+            label="Extremely high: above 500 mg/dL"
+          />
+        </Grid>
+        <Grid item xs={12}>
+          {selectedCholesterolLevel && (
+            <Typography variant="body1">You selected: {selectedCholesterolLevel}</Typography>
+          )}
+        </Grid>
+        
+        
+      </Grid>
+      <Grid item xs={6} style={{ marginBottom: '20px',marginLeft:'410px' }}>
+      <Button
+            component={Link}
+            to="/gq"
+            variant="contained"
+            color="primary"
+            style={{ backgroundColor: 'green',marginRight:'10px' }}
+          >
+            Change Responses
             
-          </div>
-          <div><img src={c} alt="Logo" className="c-image" /></div>
-        </div>
-        <img src={logoImage} alt="Logo" className="logo-image" />
-      </div>
-      
-      
-    </div>
+          </Button>
+          
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={updateAndNavigate}
+            disabled={!selectedCholesterolLevel}
+            style={{ backgroundColor: 'green' }}
+          >
+            Next
+          </Button>
+    
+       
+          
+          </Grid>
+    </Container>
   );
 }
 

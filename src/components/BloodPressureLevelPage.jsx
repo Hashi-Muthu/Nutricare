@@ -141,7 +141,7 @@ function BloodPressureLevelPage() {
         <Grid container spacing={2}>
           <Grid item xs={6} style={{marginLeft:'310px',marginTop:'10px'}}>
             <Link to="/gq" style={{marginRight:'10px'}}>
-              <Button variant="contained" color="primary">
+              <Button variant="contained" color="primary"  style={{ backgroundColor: 'White',color:'Black' }}>
                 Change Response
               </Button>
             </Link>
@@ -152,6 +152,7 @@ function BloodPressureLevelPage() {
               color="primary"
               onClick={updateAndNavigate}
               disabled={!selectedBloodPressure}
+              style={{ backgroundColor: 'White',color:'Black' }}
             >
               Next
             </Button>
