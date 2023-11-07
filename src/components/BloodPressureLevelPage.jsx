@@ -1,9 +1,21 @@
 import React, { useState } from 'react';
-import './BloodPressureLevelPage.css'; // Import the CSS file for styling
-import home from '../images/Home.png';
-import logoImage from '../images/Newlogo.png';
-import { useGlobalContext } from '../GlobalContext';
 import { Link, useNavigate } from 'react-router-dom';
+import { useGlobalContext } from '../GlobalContext';
+import Typography from '@mui/material/Typography';
+import Table from '@mui/material/Table';
+import TableHead from '@mui/material/TableHead';
+import TableBody from '@mui/material/TableBody';
+import TableRow from '@mui/material/TableRow';
+import TableCell from '@mui/material/TableCell';
+import Radio from '@mui/material/Radio';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
+import logoImage from '../images/Newlogo.png';
+
+const windowStyle = {
+  backgroundColor: 'green', // Set the window background color to green
+};
 
 function BloodPressureLevelPage() {
   const [selectedBloodPressure, setSelectedBloodPressure] = useState(null);
@@ -29,137 +41,124 @@ function BloodPressureLevelPage() {
   };
 
   return (
-    <div>
-      <div className="home-button">
-        <a href="/">
-          <img src={home} alt="Home" />
-        </a>
-      </div>
-      <div className="blood-pressure-level-container">
-        <h1>Specify your blood pressure level range here</h1>
-        <div className="table-container">
-          <table className="blood-pressure-table">
-            <thead>
-              <tr>
-                <th>Blood pressure level</th>
-                <th>Hypotension</th>
-                <th>Normal Blood Pressure</th>
-                <th>Mild Hyperglycemia</th>
-                <th>Moderate Hyperglycemia</th>
-                <th>Severe Hyperglycemia</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>systolic blood pressure Range</td>
-                <td>Less than 90</td>
-                <td>Less than 120</td>
-                <td>120-129</td>
-                <td>130-139</td>
-                <td>140 mm Hg or higher</td>
-              </tr>
-              <tr>
-                <td>diastolic blood pressure Range</td>
-                <td>Less than 60</td>
-                <td>Less than 80</td>
-                <td>Less than 80</td>
-                <td>80-89</td>
-                <td>90 mm Hg or higher</td>
-              </tr>
-              <tr>
-                <td>Response Symbol</td>
-                <td>P1</td>
-                <td>P2</td>
-                <td>P3</td>
-                <td>P4</td>
-                <td>P5</td>
-              </tr>
-            </tbody>
-          </table>
+    <div style={windowStyle}>
+
+      <Container style={{backgroundSize:'Cover', padding: '120px'}}>
+        
+        <div style={{ backgroundColor: 'rgb(255, 255, 255)', padding: '20px', borderRadius: '10px', marginBottom: '40px',marginTop: '40px'  }}>
+        <Typography variant="h4" align="center">
+          Identify  your blood pressure level range here
+        </Typography>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Blood pressure level</TableCell>
+                <TableCell>Hypotension</TableCell>
+                <TableCell>Normal Blood Pressure</TableCell>
+                <TableCell>Mild Hyperglycemia</TableCell>
+                <TableCell>Moderate Hyperglycemia</TableCell>
+                <TableCell>Severe Hyperglycemia</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <TableCell>systolic blood pressure Range</TableCell>
+                <TableCell>Less than 90</TableCell>
+                <TableCell>Less than 120</TableCell>
+                <TableCell>120-129</TableCell>
+                <TableCell>130-139</TableCell>
+                <TableCell>140 mm Hg or higher</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>diastolic blood pressure Range</TableCell>
+                <TableCell>Less than 60</TableCell>
+                <TableCell>Less than 80</TableCell>
+                <TableCell>Less than 80</TableCell>
+                <TableCell>80-89</TableCell>
+                <TableCell>90 mm Hg or higher</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Response Symbol</TableCell>
+                <TableCell>P1</TableCell>
+                <TableCell>P2</TableCell>
+                <TableCell>P3</TableCell>
+                <TableCell>P4</TableCell>
+                <TableCell>P5</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
         </div>
-        <div className="options-containers">
-          <div className="options-rows">
-            <label
-              className={`option ${selectedBloodPressure === "P1" ? 'selected' : ''}`}
-            >
-              <input
-                type="radio"
+        <div style={{ backgroundColor: 'rgb(255,255,255)', padding: '20px', borderRadius: '10px', textAlign: 'center' }}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <Typography variant="h6">Select a response:</Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Radio
                 value="P1"
                 checked={selectedBloodPressure === "P1"}
                 onChange={handleBloodPressureChange}
               />
               P1
-            </label>
-            <label
-              className={`option ${selectedBloodPressure === "P2" ? 'selected' : ''}`}
-            >
-              <input
-                type="radio"
+            </Grid>
+            <Grid item xs={12}>
+              <Radio
                 value="P2"
                 checked={selectedBloodPressure === "P2"}
                 onChange={handleBloodPressureChange}
               />
               P2
-            </label>
-            <label
-              className={`option ${selectedBloodPressure === "P3" ? 'selected' : ''}`}
-            >
-              <input
-                type="radio"
+            </Grid>
+            <Grid item xs={12}>
+              <Radio
                 value="P3"
                 checked={selectedBloodPressure === "P3"}
                 onChange={handleBloodPressureChange}
               />
               P3
-            </label>
-            <label
-              className={`option ${selectedBloodPressure === "P4" ? 'selected' : ''}`}
-            >
-              <input
-                type="radio"
+            </Grid>
+            <Grid item xs={12}>
+              <Radio
                 value="P4"
                 checked={selectedBloodPressure === "P4"}
                 onChange={handleBloodPressureChange}
               />
               P4
-            </label>
-            <label
-              className={`option ${selectedBloodPressure === "P5" ? 'selected' : ''}`}
-            >
-              <input
-                type="radio"
+            </Grid>
+            <Grid item xs={12}>
+              <Radio
                 value="P5"
                 checked={selectedBloodPressure === "P5"}
                 onChange={handleBloodPressureChange}
               />
               P5
-            </label>
-          </div>
+            </Grid>
+          </Grid>
         </div>
         {selectedBloodPressure && (
-          <p>You selected: {selectedBloodPressure}</p>
+          <Typography variant="body1" style={{marginTop:'10px'}}>You selected: {selectedBloodPressure} </Typography>
         )}
-        <div className="navigation-buttons4">
-          <a href="/gq" className="navigation-button2">
-            Change Response
-          </a>
-          <Link to="/bcq">
-            <button
-              className="next-button"
+        <Grid container spacing={2}>
+          <Grid item xs={6} style={{marginLeft:'310px',marginTop:'10px'}}>
+            <Link to="/gq" style={{marginRight:'10px'}}>
+              <Button variant="contained" color="primary">
+                Change Response
+              </Button>
+            </Link>
+  
+        
+            <Button
+              variant="contained"
+              color="primary"
               onClick={updateAndNavigate}
               disabled={!selectedBloodPressure}
             >
               Next
-            </button>
-          </Link>
-        </div>
-        <img
-          src={logoImage}
-          alt="Logo"
-          className="logo-image"
-        />{" "}
-        {/* Add the logo image */}
-      </div>
+            </Button>
+          </Grid>
+        </Grid>
+        <img src={logoImage} alt="Logo" style={{ width: '100px' }} />
+      </Container>
     </div>
   );
 }
