@@ -20,17 +20,18 @@
 .activity-list-container {
   border: 1px solid #ccc;
   padding: 10px;
-  background-color:  #705E9C;
+  background-color:  #c1c1c1;
   flex: 1;
   margin: 10px; /* Add margin for spacing */
   border-radius: 10px;
   margin: 50px;
+  font-size:'30px' ;
 }
 
 .activity-list {
   list-style-type: none;
   padding-left: 0;
-  font-size: small;
+  font-size: '30px';
 }
 
 .activity-option {
@@ -46,18 +47,19 @@
 
 .options-container {
   border: 1px solid #ccc;
-  padding: -25px;
-  background-color: #705E9C;
+  padding: 45px;
+  background-color: #f7f7f7;
   flex: 1;
   margin: 50px; /* Add margin for spacing */
-  padding: 20px;
+ 
   border-radius: 10px;
   text-align: center;
+  min-width: 300px;
 }
 
 .options-rowb {
   display: flex;
-  background-color: #705E9C;
+  background-color: #ffffff;
   align-items: center; /* Center options horizontally */
   gap: 5px; /* Reduce gap between options */
 }
@@ -79,7 +81,7 @@ p {
 }
 
 .navigation-button2 {
-  background-color: #524571;
+  background-color: #e7e7e7;
   color: #ffffff;
   padding: 10px 20px;
   text-decoration: none;
@@ -100,4 +102,19 @@ p {
   margin-top: 80px;
   margin-left: 1330px;
   text-align: center; /* Center home button */
+}
+.activity-option.selected {
+  background-color: #14b055; /* Change the background color to green when selected */
+  color: white; /* Change the text color to white when selected */
+}
+
+/* Style the "Next" button */
+.next-buttong {
+  background-color: gray; /* Set the default background color to gray */
+  color: white; /* Set the default text color to white */
+}
+
+/* Change the button's style when an option is selected */
+.activity-option.selected + .next-buttong {
+  background-color: #07a147; /* Change the background color to green when an option is selected */
 }

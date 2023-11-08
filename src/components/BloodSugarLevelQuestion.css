@@ -50,13 +50,13 @@
 }
 
 .sugar-level-option.selected {
-  background-color:#554480;
+  background-color:rgb(67, 159, 104);
   padding: 5px;
   border-radius: 5px;
 }
 
 .selected {
-  background-color:#554480;
+  background-color:rgb(68, 128, 82);
   color: white;
   border-radius: 5px;
   padding: 5px 10px;

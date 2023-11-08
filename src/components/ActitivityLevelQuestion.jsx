@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './ActivityLevelPage.css'; // Import the CSS file for styling
 import { useGlobalContext } from '../GlobalContext';
 import { useNavigate } from 'react-router-dom';
-
-
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
 
 const activityLevels = [
   {
@@ -38,79 +38,73 @@ function ActivityLevelPage() {
   const { globalArray, updateGlobalArrayAtIndex } = useGlobalContext();
   const navigate = useNavigate();
 
-  const handleActivityChange = (event) => {
-    setSelectedActivity(event.target.value);
+  const handleActivitySelect = (activitySymbol) => {
+    setSelectedActivity(activitySymbol);
   };
 
   const updateAndNavigate = () => {
     if (selectedActivity) {
       globalArray[5] = selectedActivity;
-
-      // Update the global context with the selected response
       updateGlobalArrayAtIndex(5, selectedActivity);
-
-      // Navigate to the next page with the updated array
       navigate('/fp', { state: { array: globalArray } });
     }
-  };
+  }
+
+  const Changeresponse = () => {
+    navigate('/');
+  }
 
   return (
-    <div className="activity-page-container">
-      <div className="activity-list-container">
-        <h2>How Much Active Are You?</h2>
-        <ul className="activity-list">
-          {activityLevels.map((activity) => (
-            <li
-              key={activity.symbol}
-              className={`activity-option ${selectedActivity === activity.symbol ? 'selected' : ''}`}
-            >
-              <span className="activity-symbol">{activity.symbol}</span>
-              <div>
-                <h2>{activity.level}</h2>
-                <p>{activity.description}</p>
+    <div style={{ minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div className="overlay">
+        <div className="options-container">
+          <Grid container spacing={12} style={{ marginBottom: '0px', backgroundColor: 'white', marginTop: '40px' }}>
+            <Grid item xs={12} sm={6} style={{ marginLeft: '2px' }}>
+              <div className="activity-options-column">
+                <Typography variant="h4" style={{ marginTop: '2px' }}>How Much Active Are You?</Typography>
+                <Typography variant="h6" style={{ marginTop: '2px' }}>Select your activity level:</Typography>
+                <div className="white-container">
+                  <ul className="activity-list" style={{ width: '180%', marginBottom: '120px' }}>
+                    {activityLevels.map((activity) => (
+                      <li
+                        key={activity.symbol}
+                        className={ `activity-option ${selectedActivity === activity.symbol ? 'selected' : ''}` }
+                        onClick={() => handleActivitySelect(activity.symbol)}
+                        style={{ marginTop: '2px' }}
+                      >
+                        
+                        <div  >
+                        <span className="activity-symbol" >{activity.symbol}</span>
+                          <Typography variant="h5">{activity.level}</Typography>
+                          <Typography variant="body1">{activity.description}</Typography>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="options-container">
-      <h2>Select your Option here</h2><br/>
-        <div className="options-rowb">
-          {activityLevels.map((activity) => (
-            <label
-              key={activity.symbol}
-              className={`option ${selectedActivity === activity.symbol ? 'selected' : ''}`}
-            >
-              <input
-                type="radio"
-                value={activity.symbol}
-                checked={selectedActivity === activity.symbol}
-                onChange={handleActivityChange}
-              />
-              {activity.symbol}
-            </label>
-          ))}
+            </Grid>
+          </Grid>
         </div>
-
-        {selectedActivity && <p>You selected: {selectedActivity}</p>}
-        <br/>
-        <div className="navigation-buttons">
-          <a href="/gq" className="navigation-button">
-            Change Responses
-          </a>
-          <button
-            className="next-button"
+        <div className="next-button-containerg" style={{ marginTop: '580px' }}>
+          <Button
+            onClick={Changeresponse}
+            variant="contained"
+            style={{ color: 'white', marginLeft: '-184px', marginRight: '4px', background: 'green' }}
+          >
+            Change responses
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            className="next-buttong"
             onClick={updateAndNavigate}
+            style={{ background: selectedActivity ? 'green' : 'gray', color: 'white' }}
             disabled={!selectedActivity}
           >
             Next
-          </button>
+          </Button>
         </div>
-      </div>
-
-      <div className="home-button">
-        
       </div>
     </div>
   );
