@@ -26,16 +26,15 @@ function RecommendationPage() {
       if (response.ok) {
         const data = await response.json();
         console.log('Message sent and received successfully:', data.message);
-           
-        
         setReceivedMessage(data.message);
+        convertToPDFAndDownload();
       } else {
         console.error('Failed to send the message');
       }
     } catch (error) {
       console.error('Error sending the message:', error);
     }
-    convertToPDFAndDownload();
+   
   };
 
   const convertToPDFAndDownload = () => {
