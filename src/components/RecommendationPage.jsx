@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import './RecommendationPage.css';
 import { useGlobalContext } from '../GlobalContext';
-import OutputTextBox from './OutputTextBox.jsx';
-
 import logo from '../images/Newlogo.png';
 import jsPDF from 'jspdf';
+import signature from '../images/signature.png';
+
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+
+import './RecommendationPage.css';
 
 function RecommendationPage() {
   const { globalArray } = useGlobalContext();
   const [receivedMessage, setReceivedMessage] = useState('');
-
+  /*const [isPDFButtonDisabled, setPDFButtonDisabled] = useState(true);*/
   const sendMessage = async () => {
     try {
       const response = await fetch('http://localhost:8000/send-and-receive-message/', {
@@ -23,7 +26,8 @@ function RecommendationPage() {
       if (response.ok) {
         const data = await response.json();
         console.log('Message sent and received successfully:', data.message);
-
+           
+        
         setReceivedMessage(data.message);
       } else {
         console.error('Failed to send the message');
@@ -31,59 +35,76 @@ function RecommendationPage() {
     } catch (error) {
       console.error('Error sending the message:', error);
     }
+    convertToPDFAndDownload();
   };
 
   const convertToPDFAndDownload = () => {
     const doc = new jsPDF({
-      orientation: 'portrait', // A4 is portrait orientation
+      orientation: 'portrait',
       unit: 'mm',
       format: 'a4',
       lineHeight: 1.4,
     });
 
-    // Set font size and color
-    doc.setFontSize(12);
-    doc.setTextColor(128, 0, 128); // Purple color
+    doc.setFontSize(10);
+    doc.setTextColor(0, 0, 0);
 
-    // Add an image to the PDF
-    const imgData = logo; // Replace with the actual image data
-    doc.addImage(imgData, 'PNG', 10, 10, 40, 40); // Adjust coordinates and dimensions as needed
+    const imgData = logo;
+    doc.addImage(imgData, 'PNG',10, -10, 80, 60);
 
-    // Split the received message into lines to fit within the A4 size
-    const textLines = doc.splitTextToSize(receivedMessage, 180); // Adjust the width as needed
+    const textLines = doc.splitTextToSize(receivedMessage, 180);
 
-    // Add the received message to the PDF
-    doc.text(10, 60, textLines); // Adjust coordinates as needed
+    doc.text(10, 60, textLines);
 
-    // Save the PDF with a specified filename
+    const signatureY = 250;
+    const dottedLineY = signatureY + 20;
+    const doctorNameY = dottedLineY + 10;
+    const currentDateY = doctorNameY + 10;
+    const signatureImg = signature;
+    doc.addImage(signatureImg, 'PNG', 10, signatureY, 40, 20);
+
+    doc.setLineWidth(0.5);
+    doc.setDrawColor(0, 0, 0);
+    doc.line(10, dottedLineY, 50, dottedLineY);
+
+    const doctorName = 'Dr.Nipuni Waidyarathna';
+    const currentDate = new Date().toLocaleString();
+    doc.text(10, doctorNameY, doctorName);
+    doc.text(10, currentDateY, currentDate);
+
     doc.save('recommendation.pdf');
   };
 
   return (
     <div className="recommendation-page">
-      <img src={logo} alt="Logo" className="logo" />
-      <h1 style={{ color: 'white' }} className="rh">
-        Click on the button below the text box to get your personalized recommendations
-      </h1>
-      
-      <OutputTextBox updatedArray={globalArray} receivedMessage={receivedMessage} />
-      <div>
-        <button className="message-button" onClick={sendMessage}>
-          Get My Personalized Recommendation
-        </button>
-        <button className="message-button" onClick={convertToPDFAndDownload}>
-          Download as PDF
-        </button>
-      </div>
-      <div className="navigation-buttonsr1">
-        <a href="/gq" className="navigation-buttonr">
-          Change The Personal Data
-        </a>
-      </div>
-      <div className="navigation-buttonsr2">
-        <a href="/np" className="navigation-buttonr">
-          Learn More About the Food I Want to Eat
-        </a>
+      <div className="content">
+        <div className="centered">
+          <Typography variant="h3" style={{ color: 'black' ,marginBottom:'60px'}}>
+            Click on the button below to get your personalized recommendations
+          </Typography>
+        </div>
+
+        <div className="centered">
+          <Button variant="contained" color="primary" onClick={sendMessage} style={{marginTop:'40px',background:'white',color:'black'}}>
+            Get My Personalized Diet Prescription
+          </Button>
+          
+        </div>
+
+        <div className="centered">
+          <a href="/gq" className="navigation-buttonr" style={{marginTop:'40px',background:'white',color:'black'}}>
+            CHANGE PERSONAL DATA
+          </a>
+        </div>
+        <div className="centered">
+          <a href="/np" className="navigation-buttonr" style={{marginTop:'40px',background:'white',color:'black'}}>
+            LEARN MORE ABOUT NUTRIENTS
+          </a>
+        </div>
+        <div className="centered" >
+        <img src={logo} alt="Logo" style={{marginTop:'80px'}}/>
+        </div>
+        
       </div>
     </div>
   );

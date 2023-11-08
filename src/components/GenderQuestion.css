@@ -26,8 +26,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 80px;
-  width: 20%; /* Adjusted width value */
+  padding: 50px;
+  width: 10%; /* Adjusted width value */
   color: rgb(0, 0, 0);
   border-radius: 5%;
   font-size: 50px;
@@ -79,8 +79,8 @@
 }
 
 .gender-image {
-  height: 480px;
-  width: 480px;
+  height: 280px;
+  width: 280px;
   border-radius: 100%;
   border: 3px solid #000000;
   overflow: hidden;
@@ -117,11 +117,11 @@
 /* For screens with a maximum width of 768px (laptops and desktops) */
 @media (min-width: 768px) {
   .overlay {
-    padding: 40px; /* Adjust padding for larger screens */
+    padding: 30px; /* Adjust padding for larger screens */
   }
 
   .gender-question-container {
-    margin-top: 150px; /* Adjust margin for larger screens */
+    margin-top: 50px; /* Adjust margin for larger screens */
     width: 60%; /* Adjusted width value */
   }
 

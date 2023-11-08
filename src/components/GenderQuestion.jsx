@@ -57,11 +57,11 @@ function GenderQuestion() {
   return (
     <ThemeProvider theme={customTheme}>
       <Container
-        style={{ minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+        style={{ minHeight: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
         className='body-container'
       >
         <div className='overlay'>
-          <div className="gender-question-container" style={{  padding: '20px' }}>
+          <div className="gender-question-container" style={{  padding: '10px' }}>
             <img src={logoImage} alt="Logo" className="logo-image" />
             <Typography variant="h4" className="gender-question-containerh1">What is your Gender?</Typography>
 
